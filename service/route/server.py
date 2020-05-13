@@ -84,7 +84,7 @@ class RouteGuideService(route_guide_pb2_grpc.RouteGuideServicer):
         return route_guide_pb2.RouteSummary(point_count=point_count,
                                             feature_count=feature_count,
                                             distance=int(distance),
-                                            elapsed_time=elapsed_time)
+                                            elapsed_time=int(elapsed_time))
 
     def RouteChat(self, request_iterator, context):
         prev_notes = []
