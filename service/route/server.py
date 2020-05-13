@@ -48,7 +48,7 @@ class RouteGuideService(route_guide_pb2_grpc.RouteGuideServicer):
     def GetFeature(self, request, context):
         feature = get_feature(self.db, request)
         if feature is None:
-            return route_guide_pb2.Feature(name="", locations=request)
+            return route_guide_pb2.Feature(name="", location=request)
         else:
             return feature
 
