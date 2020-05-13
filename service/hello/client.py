@@ -5,8 +5,12 @@
 # @File     : greeter_client.py
 # @Software : PyCharm
 from __future__ import print_function
-import logging
+import sys
+import os
+# 将项目的第一层级路径追加到sys.path; 否则下面import模块会找不到
+sys.path.append('/'.join(os.path.dirname(os.path.abspath(__file__)).split('/')[:-2]))
 
+import logging
 import grpc
 
 from protos.hello import hello_pb2, hello_pb2_grpc
