@@ -6,13 +6,14 @@
 # @Software : PyCharm
 
 import json
-
+import os
 from protos.route import route_guide_pb2
 
 
 def read_route_guide_database():
     feature_list = []
-    with open("route_guide_db.json") as route_guide_db_file:
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    with open("{}/route_guide_db.json".format(cur_dir)) as route_guide_db_file:
         for item in json.load(route_guide_db_file):
             point = route_guide_pb2.Point(latitude=item["location"]["latitude"],
                                           longitude=item["location"]["longitude"])
